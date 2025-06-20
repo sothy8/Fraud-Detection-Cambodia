@@ -17,6 +17,7 @@
 
 ## 🗂 Project Structure
 
+```bash
 fraud-detection-cambodia/
 ├── data/ # Simulated or real transaction CSVs
 ├── notebooks/ # EDA, feature engineering, model training
@@ -26,7 +27,7 @@ fraud-detection-cambodia/
 ├── models/ # Saved model binaries (.pkl/.onnx)
 ├── requirements.txt
 └── README.md
-
+```
 
 ---
 
@@ -48,31 +49,39 @@ fraud-detection-cambodia/
    cd fraud-detection-cambodia
 
 Install dependencies
-python -m venv venv && source venv/bin/activate
-pip install -r requirements.txt
-
+```bash
+   python -m venv venv && source venv/bin/activate
+   pip install -r requirements.txt
+```
 Generate / load data
+```bash
 python scripts/simulate_transactions.py --out data/transactions.csv
-
+```
 Train a model
+```bash
 jupyter notebook notebooks/01_train_model.ipynb
-
+```
 Run the dashboard
+```bash
 streamlit run app/main.py
+```
 
 📈 Dataset Schema
-Column	Type	Description
-txn_id	string	Unique transaction ID
-user_id	string	Sender’s wallet identifier
-recipient_id	string	Receiver / merchant ID
-amount	float	Transaction value in KHR
-txn_type	string	p2p | merchant | topup
-timestamp	datetime	Epoch ms
-location_latlon	string	GPS pair (optional)
-device_id	string	Hashed device fingerprint
-label*	int	1 = Fraud, 0 = Legit (if supervised)
+| Column            | Type     | Description                              |
+| ----------------- | -------- | ---------------------------------------- |
+| `txn_id`          | string   | Unique transaction ID                    |
+| `user_id`         | string   | Sender’s wallet identifier               |
+| `recipient_id`    | string   | Receiver / merchant ID                   |
+| `amount`          | float    | Transaction value in KHR                 |
+| `txn_type`        | string   | `p2p` \| `merchant` \| `topup`           |
+| `timestamp`       | datetime | Epoch ms                                 |
+| `location_latlon` | string   | GPS pair (optional)                      |
+| `device_id`       | string   | Hashed device fingerprint                |
+| `label`\*         | int      | `1` = Fraud, `0` = Legit (if supervised) |
 *Omit label for unsupervised mode.
+
 🏗 System Architecture
+```bash
                  +---------------------------+
                  |  Mobile‑Wallet Platform   |
                  +---------------------------+
@@ -94,21 +103,26 @@ label*	int	1 = Fraud, 0 = Legit (if supervised)
                   +----------------------+
                   |  Streamlit Dashboard |
                   +----------------------+
+```
+
 🗓 Roadmap
- Simulated dataset generator
- Baseline Isolation Forest model
- XGBoost supervised pipeline (needs labeled data)
- Model drift monitoring
- Khmer‑localized UI / mobile‑friendly dashboard
- Dockerized deployment
+- Simulated dataset generator
+- Baseline Isolation Forest model
+- XGBoost supervised pipeline (needs labeled data)
+- Model drift monitoring
+- Khmer‑localized UI / mobile‑friendly dashboard
+- Dockerized deployment
+
 🤝 Contributing
-Fork the repo & create your feature branch (git checkout -b feat/awesome‑thing)
-Commit your changes (git commit -am 'Add awesome thing')
-Push to the branch (git push origin feat/awesome‑thing)
-Open a Pull Request
+1. Fork the repo & create your feature branch (git checkout -b feat/awesome‑thing)
+2. Commit your changes (git commit -am 'Add awesome thing')
+3. Push to the branch (git push origin feat/awesome‑thing)
+4. Open a Pull Request
+
 📜 License
 Distributed under the MIT License. See LICENSE for more information.
+
 📬 Contact
-Sothy Vandeth – <your‑email@example.com>
-Project Link: <https://github.com/<your‑user>/fraud-detection-cambodia>
+Sothy Vandeth – <sothyvandeth8034@example.com>
+Project Link: <https://github.com/sothy8/fraud-detection-cambodia>
 Building a safer digital finance ecosystem for every Cambodian.
