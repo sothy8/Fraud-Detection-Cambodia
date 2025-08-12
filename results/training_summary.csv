@@ -1,0 +1,7 @@
+dataset,auc_score,model_path,fraud_rate,total_transactions
+Small_5K,0.9326275510204082,models/small_5k_model.pkl,2.0,5000
+Realistic_75K,0.9686803547464613,models/realistic_75k_model.pkl,1.8146666666666664,75000
+High_Volume_150K,0.9625503067107958,models/high_volume_150k_model.pkl,1.1873333333333334,150000
+High_Fraud_Test,0.9502971523704435,models/high_fraud_test_model.pkl,10.040000000000001,10000
+Low_Fraud_Realistic,0.9285177719291609,models/low_fraud_realistic_model.pkl,0.5133333333333333,30000
+Sparse_Users,0.9297278911564626,models/sparse_users_model.pkl,2.013333333333333,15000
